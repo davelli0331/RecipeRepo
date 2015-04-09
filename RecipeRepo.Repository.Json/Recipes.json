@@ -1,0 +1,14 @@
+[
+    {
+        Id: "1",
+        Title: "Homemade Pizza",
+        Description: "Pizza made at home",
+        TimeToPrepare: "1.5"
+    },
+    {
+        Id: "2",
+        Title: "Almond Milk Biscuits",
+        Description: "Biscuits made with almond milk",
+        TimeToPrepare: "1.0"
+    }
+]

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Repo!</title>
+</head>
+
+<body>
+    <div id="div-body">
+        <input id="text-search" type="text" />
+        <button id="button-search">Search</button>
+        <div id="div-search-results">
+        </div>
+    </div>
+    <script data-main="Scripts/app.js" src="Scripts/require.js"></script>
+
+    <script id="template-item" type="text/template">
+        <div>
+            {{Id}} {{Title}}
+        </div>
+    </script>
+</body>
+
+</html>
