@@ -5,7 +5,6 @@ $default-bottom-padding: 10px;
 $clickable-font-color: blue;
 $clickable-font-color-hover: lightblue;
 $small-text-multiplier: 0.8;
-
 body {
     font-family: $font-stack;
     font-size: $default-font-size;
@@ -14,8 +13,7 @@ body {
 
 .recipe-title {
     font-size: $default-font-size * 1.2;
-    
-    .clickable-link{
+    .clickable-link {
         font-size: $default-font-size * $small-text-multiplier;
     }
 }

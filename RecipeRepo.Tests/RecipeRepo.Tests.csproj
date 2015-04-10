@@ -75,7 +75,9 @@
     <Compile Include="Commands\CreateRecipeCommandTests.cs" />
     <Compile Include="EntityBuilders\IRecipeEntityBuilder.cs" />
     <Compile Include="EntityBuilders\RecipeBuilder.cs" />
-    <Compile Include="Integration\Repositories\JsonRepositoryTests.cs" />
+    <Compile Include="Integration\Repositories\Abstract\BaseJsonRepositoryTest.cs" />
+    <Compile Include="Integration\Repositories\Concrete\IngredientJsonRepositoryTests.cs" />
+    <Compile Include="Integration\Repositories\Concrete\RecipeJsonRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RecipeQueryTests.cs" />
     <Compile Include="Utility\ControllerFactory.cs" />

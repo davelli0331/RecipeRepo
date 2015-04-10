@@ -6,6 +6,7 @@ namespace RecipeRepo.Repository.Contracts
     public interface IRepository
     {
         IQueryable<Recipe> Recipes { get; }
+        IQueryable<Ingredient> Ingredients { get; }
 
         IRepository Create<TEntity>(TEntity _recipe) where TEntity : class;
         IRepository SaveChanges();
