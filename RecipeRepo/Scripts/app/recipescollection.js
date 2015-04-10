@@ -3,7 +3,7 @@ define(['app/recipe'], function (Recipe) {
 
     var recipesCollection = Backbone.Collection.extend({
         model: Recipe,
-        url: '/api/Recipes'
+        url: '/RecipeRepo/api/Recipes'
     });
 
     return recipesCollection;

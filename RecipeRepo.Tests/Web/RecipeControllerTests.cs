@@ -52,9 +52,27 @@ namespace RecipeRepo.Tests.Web
             });
 
             var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
-            var response = controller.Get("Test 2");
+            var response = controller.Get(null, "Test 2");
 
             var recipe = Deserialize<IEnumerable<Recipe>>(response.Content).Single();
+
+            Assert.AreEqual(2, recipe.Id);
+            Assert.AreEqual("Test 2", recipe.Title);
+        }
+
+        [TestMethod]
+        public void RecipeController_Get_By_Id_Succeeds()
+        {
+            SetRecipes(new List<Recipe> 
+            { 
+                new RecipeBuilder().With(1).With("Test 1", "This is a test recipe 1", 1.5).Build(),
+                new RecipeBuilder().With(2).With("Test 2", "This is a test recipe 2", 3.0).Build()
+            });
+
+            var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
+            var response = controller.Get(2);
+
+            var recipe = Deserialize<Recipe>(response.Content);
 
             Assert.AreEqual(2, recipe.Id);
             Assert.AreEqual("Test 2", recipe.Title);

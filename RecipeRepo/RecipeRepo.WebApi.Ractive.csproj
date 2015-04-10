@@ -14,7 +14,7 @@
     <RootNamespace>RecipeRepo.WebApi.Ractive</RootNamespace>
     <AssemblyName>RecipeRepo.WebApi.Ractive</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -103,6 +103,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="content\RecipeRepo.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app\recipe.js" />
     <Content Include="Scripts\app\recipescollection.js" />
@@ -128,6 +129,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="content\RecipeRepo.css.map" />
+    <Content Include="content\RecipeRepo.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,7 +164,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61435</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61435/</IISUrl>
+          <IISUrl>http://localhost/RecipeRepo</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

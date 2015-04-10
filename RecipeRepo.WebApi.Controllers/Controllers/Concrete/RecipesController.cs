@@ -9,10 +9,17 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
     {
         public RecipesController(IRequirements requirements) : base(requirements) { }
 
-        public HttpResponseMessage Get(string name = null)
+        public HttpResponseMessage Get(int? id = null, string name = null)
         {
-            return Request.CreateResponse(ControllerRequirements.QueryGenerator
-                .GenerateRecipeQuery()
+            var query = ControllerRequirements.QueryGenerator
+                .GenerateRecipeQuery();
+
+            if (id.HasValue)
+            {
+                return Request.CreateResponse(query.GetById(id.Value));
+            }
+
+            return Request.CreateResponse(query
                 .GetWhere(new RecipeQueryOptions
                 {
                     TitleContains = name

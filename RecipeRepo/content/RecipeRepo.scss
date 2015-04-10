@@ -1,0 +1,37 @@
+$font-stack: Helvetica;
+$default-font-size: 12pt;
+$default-font-color: darkslategray;
+$default-bottom-padding: 10px;
+$clickable-font-color: blue;
+$clickable-font-color-hover: lightblue;
+$small-text-multiplier: 0.8;
+
+body {
+    font-family: $font-stack;
+    font-size: $default-font-size;
+    color: $default-font-color;
+}
+
+.recipe-title {
+    font-size: $default-font-size * 1.2;
+    
+    .clickable-link{
+        font-size: $default-font-size * $small-text-multiplier;
+    }
+}
+
+.recipe-description {
+    font-size: $default-font-size * $small-text-multiplier;
+}
+
+.recipe {
+    padding-bottom: $default-bottom-padding;
+}
+
+.clickable-link {
+    color: $clickable-font-color;
+    &:hover {
+        color: $clickable-font-color-hover;
+        cursor: pointer;
+    }
+}
