@@ -4,21 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF99BDE1-77B6-4D88-B224-4A36BA4E4541}</ProjectGuid>
+    <ProjectGuid>{75023417-DA5E-4B88-8911-27CC9BEEC53D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RecipeRepo.WebApi.Controllers</RootNamespace>
-    <AssemblyName>RecipeRepo.WebApi.Controllers</AssemblyName>
+    <RootNamespace>RecipeRepo.WebApi.DependencyResolution</RootNamespace>
+    <AssemblyName>RecipeRepo.WebApi.DependencyResolution</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,20 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,23 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Abstact\BaseController.cs" />
-    <Compile Include="ControllerRequirements\Abstract\IRequirements.cs" />
-    <Compile Include="ControllerRequirements\Concrete\ControllerRequirements.cs" />
+    <Compile Include="DependencyConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\Concrete\RecipesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RecipeRepo.Concrete.Crud\RecipeRepo.Crud.Concrete.csproj">
+      <Project>{271abfcd-f4ce-42ff-a332-0517ae719515}</Project>
+      <Name>RecipeRepo.Crud.Concrete</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RecipeRepo.Contracts.Crud\RecipeRepo.Crud.Contracts.csproj">
       <Project>{49c11ee8-894a-4dff-8d7f-a9340cdeb1f9}</Project>
       <Name>RecipeRepo.Crud.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo.Domain\RecipeRepo.Domain.csproj">
-      <Project>{e76c3127-b4ae-4091-9005-51db6a24d3fe}</Project>
-      <Name>RecipeRepo.Domain</Name>
+    <ProjectReference Include="..\RecipeRepo.Repository.Contracts\RecipeRepo.Repository.Contracts.csproj">
+      <Project>{d851ea31-2ef0-4def-a60f-a19e45787ca7}</Project>
+      <Name>RecipeRepo.Repository.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecipeRepo.Repository.Json\RecipeRepo.Repository.Json.csproj">
+      <Project>{4e79724b-160d-4f3d-b8fa-304786306d37}</Project>
+      <Name>RecipeRepo.Repository.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecipeRepo.WebApi.Controllers\RecipeRepo.WebApi.Controllers.csproj">
+      <Project>{ff99bde1-77b6-4d88-b224-4a36ba4e4541}</Project>
+      <Name>RecipeRepo.WebApi.Controllers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

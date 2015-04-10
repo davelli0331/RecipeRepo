@@ -7,11 +7,8 @@ namespace RecipeRepo.WebApi.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.WebApi;
-    using RecipeRepo.Crud.Concrete;
-    using RecipeRepo.Crud.Contracts.Retreive.QueryGenerator.Abstract;
-    using RecipeRepo.Repository.Contracts;
-    using RecipeRepo.Repository.Json;
     using RecipeRepo.WebApi.Controllers;
+    using RecipeRepo.WebApi.DependencyResolution;
     using System;
     using System.Web;
     using System.Web.Http;
@@ -69,17 +66,7 @@ namespace RecipeRepo.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel
-                .Bind<IRepository>()
-                .To<JsonRepository>();
-
-            kernel
-                .Bind<IQueryGenerator>()
-                .To<QueryGenerator>();
-
-            kernel
-                .Bind<IRequirements>()
-                .To<ControllerRequirements>();
+            DependencyConfiguration.Configure(kernel);
         }        
     }
 }

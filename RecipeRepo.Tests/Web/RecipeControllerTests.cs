@@ -7,6 +7,7 @@ using RecipeRepo.Repository.Contracts;
 using RecipeRepo.Tests.EntityBuilders;
 using RecipeRepo.Tests.Utility;
 using RecipeRepo.WebApi.Controllers;
+using RecipeRepo.WebApi.Controllers.Concrete;
 using System.Collections.Generic;
 using System.Linq;
 

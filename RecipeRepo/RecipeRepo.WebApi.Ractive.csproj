@@ -116,7 +116,6 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ControllerRequirements.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,29 +131,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RecipeRepo.Concrete.Crud\RecipeRepo.Crud.Concrete.csproj">
-      <Project>{271abfcd-f4ce-42ff-a332-0517ae719515}</Project>
-      <Name>RecipeRepo.Crud.Concrete</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo.Contracts.Crud\RecipeRepo.Crud.Contracts.csproj">
-      <Project>{49c11ee8-894a-4dff-8d7f-a9340cdeb1f9}</Project>
-      <Name>RecipeRepo.Crud.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo.Domain\RecipeRepo.Domain.csproj">
-      <Project>{e76c3127-b4ae-4091-9005-51db6a24d3fe}</Project>
-      <Name>RecipeRepo.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo.Repository.Contracts\RecipeRepo.Repository.Contracts.csproj">
-      <Project>{d851ea31-2ef0-4def-a60f-a19e45787ca7}</Project>
-      <Name>RecipeRepo.Repository.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo.Repository.Json\RecipeRepo.Repository.Json.csproj">
-      <Project>{4e79724b-160d-4f3d-b8fa-304786306d37}</Project>
-      <Name>RecipeRepo.Repository.Json</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RecipeRepo.WebApi.Controllers\RecipeRepo.WebApi.Controllers.csproj">
       <Project>{ff99bde1-77b6-4d88-b224-4a36ba4e4541}</Project>
       <Name>RecipeRepo.WebApi.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecipeRepo.WebApi.DependencyResolution\RecipeRepo.WebApi.DependencyResolution.csproj">
+      <Project>{75023417-da5e-4b88-8911-27cc9beec53d}</Project>
+      <Name>RecipeRepo.WebApi.DependencyResolution</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

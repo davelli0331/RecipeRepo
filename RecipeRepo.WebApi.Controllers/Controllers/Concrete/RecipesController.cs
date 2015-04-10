@@ -1,7 +1,9 @@
 ﻿using RecipeRepo.Crud.Contracts.Retreive.QueryOptions;
+using RecipeRepo.WebApi.Controllers.Abstract;
+using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
 using System.Net.Http;
 
-namespace RecipeRepo.WebApi.Controllers
+namespace RecipeRepo.WebApi.Controllers.Concrete
 {
     public class RecipesController : BaseController
     {

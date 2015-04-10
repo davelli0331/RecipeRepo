@@ -1,6 +1,7 @@
-﻿using System.Web.Http;
+﻿using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
+using System.Web.Http;
 
-namespace RecipeRepo.WebApi.Controllers
+namespace RecipeRepo.WebApi.Controllers.Abstract
 {
     public class BaseController : ApiController
     {
