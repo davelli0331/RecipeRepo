@@ -1,5 +1,4 @@
-﻿using RecipeRepo.WebApi.Controllers;
-using RecipeRepo.WebApi.Controllers.Abstract;
+﻿using RecipeRepo.WebApi.Controllers.Abstract;
 using System;
 using System.Net.Http;
 using System.Web.Http;

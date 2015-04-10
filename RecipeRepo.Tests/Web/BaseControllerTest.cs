@@ -4,12 +4,10 @@ using RecipeRepo.Crud.Concrete.Queries;
 using RecipeRepo.Crud.Contracts.Retreive.QueryGenerator.Abstract;
 using RecipeRepo.Domain;
 using RecipeRepo.Repository.Contracts;
-using RecipeRepo.WebApi.Controllers;
-using System.Collections.Generic;
-using System.Net.Http;
+using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
 using System.Collections.Generic;
 using System.Linq;
-using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
+using System.Net.Http;
 
 namespace RecipeRepo.Tests.Web
 {

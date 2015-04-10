@@ -7,7 +7,6 @@ namespace RecipeRepo.WebApi.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.WebApi;
-    using RecipeRepo.WebApi.Controllers;
     using RecipeRepo.WebApi.DependencyResolution;
     using System;
     using System.Web;

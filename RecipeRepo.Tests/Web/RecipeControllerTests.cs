@@ -1,12 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using RecipeRepo.Crud.Concrete.Queries;
-using RecipeRepo.Crud.Contracts.Retreive.QueryGenerator.Abstract;
 using RecipeRepo.Domain;
-using RecipeRepo.Repository.Contracts;
 using RecipeRepo.Tests.EntityBuilders;
 using RecipeRepo.Tests.Utility;
-using RecipeRepo.WebApi.Controllers;
 using RecipeRepo.WebApi.Controllers.Concrete;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,4 @@
-﻿using System;
-namespace RecipeRepo.Tests.EntityBuilders
+﻿namespace RecipeRepo.Tests.EntityBuilders
 {
     public interface IRecipeEntityBuilder<TEntity, TEntityBuilder>
     {
