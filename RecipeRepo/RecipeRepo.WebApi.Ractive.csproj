@@ -104,6 +104,8 @@
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app\recipe.js" />
+    <Content Include="Scripts\app\recipescollection.js" />
     <Content Include="Scripts\libraries\backbone.js" />
     <Content Include="Scripts\libraries\handlebars.js" />
     <Content Include="Scripts\libraries\jquery.js" />
@@ -111,6 +113,9 @@
     <Content Include="Scripts\libraries\underscore.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\templates\list.html" />
+    <Content Include="Scripts\views\appView.js" />
+    <Content Include="Scripts\views\recipeListView.js" />
+    <Content Include="Scripts\views\recipeView.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +145,7 @@
       <Name>RecipeRepo.WebApi.DependencyResolution</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\app\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

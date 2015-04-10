@@ -1,4 +1,4 @@
-define(['app/recipescollection', 'views/recipeView'], function (RecipesCollection, RecipeView) {
+define(['app/recipescollection', 'views/recipeListView'], function (RecipesCollection, RecipeListView) {
     'use strict';
 
     var appView;
@@ -7,11 +7,10 @@ define(['app/recipescollection', 'views/recipeView'], function (RecipesCollectio
         el: $("#div-body"),
         initialize: function () {
             this.searchInput = $('#text-search');
-            this.searchResults = $('#div-search-results');
-
             this.recipes = new RecipesCollection();
 
             var me = this;
+
             this.recipes.fetch({
                 success: function () {
                     me.render();
@@ -22,19 +21,12 @@ define(['app/recipescollection', 'views/recipeView'], function (RecipesCollectio
             "click button": "searchRecipes"
         },
         render: function () {
-            var me = this;
-            this.searchResults.empty();
-            this.recipes.each(function (recipe) {
-                me.addRecipe(recipe);
+            var reciplesListView = new RecipeListView({
+                model: this.recipes
             });
-        },
-        addRecipe: function (recipe) {
-            var recipeView = new RecipeView({
-                model: recipe
-            });
-            recipeView.render();
+            reciplesListView.render();
 
-            this.searchResults.append(recipeView.el);
+            this.$el.append(reciplesListView.el);
         },
         searchRecipes: function () {
             var me = this;
