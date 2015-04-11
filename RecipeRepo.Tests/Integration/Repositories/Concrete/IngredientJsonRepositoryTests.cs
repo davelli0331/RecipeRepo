@@ -20,7 +20,7 @@ namespace RecipeRepo.Tests.Integration.Repositories
         {
             CacheExistingJson(fileName);
 
-            File.WriteAllText(JsonRepository.JsonFolderLocation + fileName, "[{\"Id\":\"1\",\"Name\":\"All Purpose Flour\"},{\"Id\":\"2\",\"Name\":\"Active Yeast\"}]");
+            File.WriteAllText(JsonRepositoryStrings.JsonFolderLocation + fileName, "[{\"Id\":\"1\",\"Name\":\"All Purpose Flour\"},{\"Id\":\"2\",\"Name\":\"Active Yeast\"}]");
         }
 
         [TestCleanup]
@@ -71,6 +71,23 @@ namespace RecipeRepo.Tests.Integration.Repositories
             var updated = repo.Ingredients.Single(i => i.Id == 1);
 
             Assert.AreEqual("Le test", updated.Name);
+        }
+
+        [TestMethod]
+        public void IngredientJsonRepository_Delete_Succeeds()
+        {
+            var repo = new JsonRepository();
+            var ingredient = repo.Ingredients.Single(i => i.Id == 1);
+
+            repo.Delete(ingredient)
+                .SaveChanges();
+
+            repo = new JsonRepository();
+
+            var shouldBeNull = repo.Ingredients.SingleOrDefault(i => i.Id == 1);
+
+            Assert.IsNull(shouldBeNull);
+            Assert.AreEqual(1, repo.Ingredients.Count());
         }
     }
 }

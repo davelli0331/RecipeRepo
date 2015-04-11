@@ -16,7 +16,7 @@ namespace RecipeRepo.Tests.Integration.Repositories
             // cache the existing JSON
             CacheExistingJson("Recipes.json");
 
-            File.WriteAllText(JsonRepository.JsonFolderLocation + "Recipes.json", "[{Id:\"1\",Title:\"Homemade Pizza\",Description:\"Pizza made at home\",TimeToPrepare:\"1.5\"},{Id:\"2\",Title:\"Almond Milk Biscuits\",Description:\"Biscuits made with almond milk\",TimeToPrepare:\"1.0\"}]");
+            File.WriteAllText(JsonRepositoryStrings.JsonFolderLocation + "Recipes.json", "[{Id:\"1\",Title:\"Homemade Pizza\",Description:\"Pizza made at home\",TimeToPrepare:\"1.5\"},{Id:\"2\",Title:\"Almond Milk Biscuits\",Description:\"Biscuits made with almond milk\",TimeToPrepare:\"1.0\"}]");
         }        
 
         [TestCleanup]

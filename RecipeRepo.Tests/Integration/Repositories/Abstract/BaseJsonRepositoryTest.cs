@@ -14,12 +14,12 @@ namespace RecipeRepo.Tests.Integration.Repositories.Abstract
 
         protected void CacheExistingJson(string fileName)
         {
-            ExistingJson = File.ReadAllText(JsonRepository.JsonFolderLocation + fileName);
+            ExistingJson = File.ReadAllText(JsonRepositoryStrings.JsonFolderLocation + fileName);
         }
 
         protected void RestoreCachedJson(string fileName)
         {
-            File.WriteAllText(JsonRepository.JsonFolderLocation + fileName, ExistingJson);
+            File.WriteAllText(JsonRepositoryStrings.JsonFolderLocation + fileName, ExistingJson);
         }
     }
 }
