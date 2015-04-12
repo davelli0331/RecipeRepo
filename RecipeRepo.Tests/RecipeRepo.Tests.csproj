@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CreateRecipeCommandTests.cs" />
+    <Compile Include="EntityBuilders\IngredientBuilder.cs" />
     <Compile Include="EntityBuilders\IRecipeEntityBuilder.cs" />
     <Compile Include="EntityBuilders\RecipeBuilder.cs" />
     <Compile Include="Integration\Repositories\Abstract\BaseJsonRepositoryTest.cs" />

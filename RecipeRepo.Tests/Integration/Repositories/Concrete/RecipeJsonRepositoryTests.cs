@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RecipeRepo.Domain;
 using RecipeRepo.Repository.Json;
+using RecipeRepo.Tests.EntityBuilders;
 using RecipeRepo.Tests.Integration.Repositories.Abstract;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -97,10 +99,28 @@ namespace RecipeRepo.Tests.Integration.Repositories
         }
 
         [TestMethod]
-        public void JsonRepositoy_Get_Ingredients_Succeeds()
+        public void JsonRepository_Create_With_Ingredients_Succeeds()
         {
+            var ingredient = new IngredientBuilder()
+                .With(1)
+                .With("Test Ingredient")
+                .Build();
+
+            var recipe = new RecipeBuilder()
+                .With("Test with ingredients", "Has Ingredients", 1.5)
+                .Has(ingredient, 1, "ml")
+                .Build();
+                
             var repo = new JsonRepository();
-            
+            repo
+                .Create(recipe)
+                .SaveChanges();
+
+            repo = new JsonRepository();
+            var added = repo.Recipes.Single(r => r.Id == recipe.Id);
+
+            Assert.AreEqual(1, added.Ingredients.Count);
+            Assert.AreEqual(1, added.Ingredients.Single().Quantity);
         }
     }
 }

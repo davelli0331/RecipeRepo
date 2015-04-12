@@ -43,7 +43,8 @@ namespace RecipeRepo.Repository.Json.EntityRepositories
 
         public IRepository SaveChanges()
         {
-            File.WriteAllText(JsonRepositoryStrings.JsonFolderLocation + JsonRepositoryStrings.IngredientsFileName, JsonConvert.SerializeObject(_ingredients));
+            File.WriteAllText(JsonRepositoryStrings.JsonFolderLocation + JsonRepositoryStrings.IngredientsFileName, 
+                JsonConvert.SerializeObject(_ingredients));
 
             return this;    
         }

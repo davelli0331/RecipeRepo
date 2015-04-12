@@ -42,7 +42,11 @@ namespace RecipeRepo.Repository.Json.EntityRepositories
 
         public IRepository SaveChanges()
         {
-            File.WriteAllText(fileLocation, JsonConvert.SerializeObject(_recipes));
+            File.WriteAllText(fileLocation, 
+                JsonConvert.SerializeObject(_recipes, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                }));
                 
             return this;
         }
