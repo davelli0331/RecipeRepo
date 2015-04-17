@@ -1,45 +1,60 @@
-define(['app/recipescollection', 'views/recipeListView'], function (RecipesCollection, RecipeListView) {
-    'use strict';
+define(['app/globalevents',
+        'app/recipescollection',
+        'views/recipeListView',
+        'views/recipeDetailsView'],
+    function (GlobalEvents, RecipesCollection, RecipeListView, RecipeDetailsView) {
+        'use strict';
 
-    var appView;
+        var appView;
 
-    appView = Backbone.View.extend({
-        el: $("#div-body"),
-        initialize: function () {
-            this.searchInput = $('#text-search');
-            this.recipes = new RecipesCollection();
+        appView = Backbone.View.extend({
+            el: $("#div-body"),
+            initialize: function () {
+                this.searchInput = $('#text-search');
+                this.recipes = new RecipesCollection();
 
-            var me = this;
+                var me = this;
 
-            this.recipes.fetch({
-                success: function () {
-                    me.render();
-                }
-            });
-        },
-        events: {
-            "click button": "searchRecipes"
-        },
-        render: function () {
-            var reciplesListView = new RecipeListView({
-                model: this.recipes
-            });
-            reciplesListView.render();
+                this.recipes.fetch({
+                    success: function () {
+                        me.render();
+                    }
+                });
 
-            this.$el.append(reciplesListView.el);
-        },
-        searchRecipes: function () {
-            var me = this;
-            this.recipes.fetch({
-                data: {
-                    name: this.searchInput.val()
-                },
-                success: function () {
-                    me.render();
-                }
-            });
-        }
+                GlobalEvents.on('showRecipeDetailsClicked', this.showRecipeDetailView, this);
+            },
+            events: {
+                "click button": "searchRecipes"
+            },
+            render: function () {
+                var reciplesListView = new RecipeListView({
+                    model: this.recipes
+                });
+                reciplesListView.render();
+
+                this.$el.append(reciplesListView.el);
+            },
+            searchRecipes: function () {
+                var me = this;
+                this.recipes.fetch({
+                    data: {
+                        name: this.searchInput.val()
+                    },
+                    success: function () {
+                        me.render();
+                    }
+                });
+            },
+            showRecipeDetailView: function (model) {
+                var detailView = new RecipeDetailsView({
+                    model: model
+                });
+                detailView.render();
+                this.$el
+                    .empty()
+                    .append(detailView.el);
+            }
+        });
+
+        return appView;
     });
-
-    return appView;
-});
