@@ -3,7 +3,7 @@ define(['underscore', 'backbone', 'app/globalevents'], function (_, Backbone, Gl
 
     var recipeRouter = Backbone.Router.extend({
         routes: {
-            "Recipe/:id": "details"
+            "RecipeRepo/Recipe/:id": "details"
         },
 
         details: function (id) {

@@ -1,7 +1,9 @@
 define(['jquery', 'app/reciperoutes'], function ($, RecipeRoutes) {
     'use strict';
 
-    var router = new RecipeRoutes();
+    var router = new RecipeRoutes({
+        root: '/RecipeRepo'
+    });
 
     $(document).on("click ", "a[href ^= '/']", function (event) {
         if (!event.shiftKey) {
