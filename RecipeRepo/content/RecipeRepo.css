@@ -1,28 +1,29 @@
-/* line 9, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+/* line 8, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
 body {
   font-family: Helvetica;
   font-size: 12pt;
   color: darkslategray; }
 
-/* line 15, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+/* line 14, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
 .recipe-title {
   font-size: 14.4pt; }
-  /* line 18, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+  /* line 16, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
   .recipe-title .clickable-link {
     font-size: 9.6pt; }
 
-/* line 23, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+/* line 21, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
 .recipe-description {
   font-size: 9.6pt; }
 
-/* line 27, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+/* line 25, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
 .recipe {
   padding-bottom: 10px; }
 
-/* line 31, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+/* line 29, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
 .clickable-link {
-  color: blue; }
-  /* line 33, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+  color: blue;
+  text-decoration: none; }
+  /* line 32, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
   .clickable-link:hover {
     color: lightblue;
     cursor: pointer; }

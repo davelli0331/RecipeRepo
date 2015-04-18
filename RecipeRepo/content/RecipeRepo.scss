@@ -28,6 +28,7 @@ body {
 
 .clickable-link {
     color: $clickable-font-color;
+    text-decoration: none;
     &:hover {
         color: $clickable-font-color-hover;
         cursor: pointer;

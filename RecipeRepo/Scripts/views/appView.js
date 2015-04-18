@@ -1,11 +1,19 @@
-define(['app/globalevents',
+define(['jquery',
+        'underscore',
+        'backbone',
+        'anchorclickhandler',
+        'app/globalevents',
         'app/recipescollection',
         'views/recipeListView',
         'views/recipeDetailsView'],
-    function (GlobalEvents, RecipesCollection, RecipeListView, RecipeDetailsView) {
+    function ($, _, Backbone, anchorClickHandler, GlobalEvents, RecipesCollection, RecipeListView, RecipeDetailsView) {
         'use strict';
 
         var appView;
+
+        Backbone.history.start({
+            pushState: true
+        });
 
         appView = Backbone.View.extend({
             el: $("#div-body"),
@@ -21,7 +29,7 @@ define(['app/globalevents',
                     }
                 });
 
-                GlobalEvents.on('showRecipeDetailsClicked', this.showRecipeDetailView, this);
+                GlobalEvents.on('recipes:detail', this.recipeDetail, this);
             },
             events: {
                 "click button": "searchRecipes"
@@ -45,14 +53,20 @@ define(['app/globalevents',
                     }
                 });
             },
-            showRecipeDetailView: function (model) {
-                var detailView = new RecipeDetailsView({
-                    model: model
-                });
-                detailView.render();
-                this.$el
-                    .empty()
-                    .append(detailView.el);
+            recipeDetail: function (id) {
+                var recipe = this.recipes.get(id),
+                    detailView;
+
+                if (recipe) {
+                    detailView = new RecipeDetailsView({
+                        model: recipe
+                    });
+                    detailView.render();
+                    this.$el
+                        .empty()
+                        .append(detailView.el);
+                }
+                //                
             }
         });
 
