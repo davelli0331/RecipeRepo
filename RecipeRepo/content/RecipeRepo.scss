@@ -34,3 +34,18 @@ body {
         cursor: pointer;
     }
 }
+
+.fixed-width {
+    display: inline-block;
+}
+
+.label-column {
+    @extend .fixed-width;
+    width: 150px;
+}
+
+.text-rounded-corners {
+    border-radius: 5px;
+    border-color: $default-font-color;
+    border-width: 1px;
+}

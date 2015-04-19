@@ -1,6 +1,9 @@
 ﻿using RecipeRepo.Crud.Contracts.Retreive.QueryOptions;
+using RecipeRepo.Domain;
 using RecipeRepo.WebApi.Controllers.Abstract;
 using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace RecipeRepo.WebApi.Controllers.Concrete
@@ -24,6 +27,18 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
                 {
                     TitleContains = name
                 }));
+        }
+
+        public HttpResponseMessage Post(IEnumerable<Recipe> recipes)
+        {
+            //foreach (var recipe in recipes)
+            //{
+            //    ControllerRequirements.CommandGenerator
+            //        .For(recipe)
+            //        .OfType(CommandType)
+            //}
+
+            throw new NotImplementedException();
         }
     }
 }

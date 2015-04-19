@@ -3,6 +3,7 @@ using RecipeRepo.Domain;
 using RecipeRepo.Tests.EntityBuilders;
 using RecipeRepo.Tests.Utility;
 using RecipeRepo.WebApi.Controllers.Concrete;
+using RecipeRepo.WebApi.Controllers.JsonResponses.Concrete;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -76,6 +77,23 @@ namespace RecipeRepo.Tests.Web
 
             Assert.AreEqual(2, recipe.Id);
             Assert.AreEqual("Test 2", recipe.Title);
+        }
+
+        [TestMethod]
+        public void RecipeController_Post_Succeeds()
+        {
+            var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
+
+            var result = Deserialize<JsonResponse>(controller.Post(new List<Recipe> 
+            { 
+                new Recipe 
+                {
+                    Title = "Test",
+                    Description = "Test"
+                }
+            }).Content);
+
+            Assert.AreEqual("Success", result.Result);
         }
     }
 }

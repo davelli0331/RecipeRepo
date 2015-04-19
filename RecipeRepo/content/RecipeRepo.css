@@ -28,4 +28,18 @@ body {
     color: lightblue;
     cursor: pointer; }
 
+/* line 38, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+.fixed-width, .label-column {
+  display: inline-block; }
+
+/* line 42, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+.label-column {
+  width: 150px; }
+
+/* line 47, C:/Solutions/RecipeRepo/Source/RecipeRepo/content/RecipeRepo.scss */
+.text-rounded-corners {
+  border-radius: 5px;
+  border-color: darkslategray;
+  border-width: 1px; }
+
 /*# sourceMappingURL=RecipeRepo.css.map */
