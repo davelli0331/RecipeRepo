@@ -1,4 +1,4 @@
-﻿namespace RecipeRepo.Domain
+﻿namespace RecipeRepo.Repository.Contracts
 {
     interface IRecipeEntity
     {

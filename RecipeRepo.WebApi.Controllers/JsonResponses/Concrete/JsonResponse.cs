@@ -11,7 +11,7 @@ namespace RecipeRepo.WebApi.Controllers.JsonResponses.Concrete
         private const string _successResultString = "Success";
         private const string _errorResultString = "Error";
 
-        public string Result { get; private set; }
+        public string Result { get; set; }
 
         public static JsonResponse CreateSuccessResponse()
         {

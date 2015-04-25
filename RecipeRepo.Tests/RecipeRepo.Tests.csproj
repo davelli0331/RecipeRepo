@@ -72,6 +72,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandGeneratorTests.cs" />
     <Compile Include="Commands\CreateRecipeCommandTests.cs" />
     <Compile Include="EntityBuilders\IngredientBuilder.cs" />
     <Compile Include="EntityBuilders\IRecipeEntityBuilder.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Integration\Repositories\Concrete\RecipeJsonRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RecipeQueryTests.cs" />
+    <Compile Include="Stubs\StubSuccessfulCommand.cs" />
     <Compile Include="Utility\ControllerFactory.cs" />
     <Compile Include="Web\BaseControllerTest.cs" />
     <Compile Include="Web\RecipeControllerTests.cs" />

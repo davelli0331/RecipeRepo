@@ -84,14 +84,16 @@ namespace RecipeRepo.Tests.Web
         {
             var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
 
-            var result = Deserialize<JsonResponse>(controller.Post(new List<Recipe> 
+            var response = controller.Post(new List<Recipe> 
             { 
                 new Recipe 
                 {
                     Title = "Test",
                     Description = "Test"
                 }
-            }).Content);
+            });
+
+            var result = Deserialize<JsonResponse>(response.Content);
 
             Assert.AreEqual("Success", result.Result);
         }

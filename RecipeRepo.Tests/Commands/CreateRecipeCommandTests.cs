@@ -29,9 +29,8 @@ namespace RecipeRepo.Tests.Commands
                 Description = "Pizza Made At Home",
                 TimeToPrepare = 1.5
             });
-            var result = command.Execute();
-
-            Assert.AreEqual(1, result);
+            
+            command.Execute();
 
             _mockRepository.Verify(r => r.Create(It.Is<Recipe>(rec =>
                 rec.Id == 1 &&

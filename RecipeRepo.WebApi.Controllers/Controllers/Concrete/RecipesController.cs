@@ -1,7 +1,9 @@
-﻿using RecipeRepo.Crud.Contracts.Retreive.QueryOptions;
+﻿using RecipeRepo.Crud.Contracts.CreateUpdateDelete;
+using RecipeRepo.Crud.Contracts.Retreive.QueryOptions;
 using RecipeRepo.Domain;
 using RecipeRepo.WebApi.Controllers.Abstract;
 using RecipeRepo.WebApi.Controllers.ControllerRequirements.Abstract;
+using RecipeRepo.WebApi.Controllers.JsonResponses.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -31,14 +33,16 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
 
         public HttpResponseMessage Post(IEnumerable<Recipe> recipes)
         {
-            //foreach (var recipe in recipes)
-            //{
-            //    ControllerRequirements.CommandGenerator
-            //        .For(recipe)
-            //        .OfType(CommandType)
-            //}
+            foreach (var recipe in recipes)
+            {
+                var command = ControllerRequirements.CommandGenerator
+                    .For(recipe)
+                    .ThatWill(CommandType.Create);
 
-            throw new NotImplementedException();
+                command.Execute();
+            }
+
+            return Request.CreateResponse(JsonResponse.CreateSuccessResponse());
         }
     }
 }

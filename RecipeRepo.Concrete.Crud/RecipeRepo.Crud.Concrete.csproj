@@ -47,7 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Recipe\CreateRecipeCommand.cs" />
+    <Compile Include="Commands\Abstract\BaseCommand.cs" />
+    <Compile Include="Commands\CommandGenerator\CommandGenerator.cs" />
+    <Compile Include="Commands\CommandGenerator\EntityCommandGenerators\Abstract\EntityCommandGenerator.cs" />
+    <Compile Include="Commands\CommandGenerator\EntityCommandGenerators\Concrete\RecipeCommandGenerator.cs" />
+    <Compile Include="Commands\Concrete\Recipe\CreateRecipeCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RecipeQuery.cs" />
     <Compile Include="QueryGenerator.cs" />
@@ -66,6 +70,7 @@
       <Name>RecipeRepo.Repository.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
