@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeRepo.Crud.Concrete.Commands.CommandGenerator
+namespace RecipeRepo.Crud.Concrete.Commands.CommandGenerator.Concrete
 {
     public class CommandGenerator : ICommandGenerator
     {

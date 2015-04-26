@@ -7,6 +7,7 @@ using RecipeRepo.WebApi.Controllers.JsonResponses.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Linq;
 
 namespace RecipeRepo.WebApi.Controllers.Concrete
 {
@@ -31,18 +32,15 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
                 }));
         }
 
-        public HttpResponseMessage Post(IEnumerable<Recipe> recipes)
+        public HttpResponseMessage Post(Recipe recipe)
         {
-            foreach (var recipe in recipes)
-            {
-                var command = ControllerRequirements.CommandGenerator
-                    .For(recipe)
-                    .ThatWill(CommandType.Create);
+            var command = ControllerRequirements.CommandGenerator
+                .For(recipe)
+                .ThatWill(CommandType.Create);
 
-                command.Execute();
-            }
+            command.Execute();
 
-            return Request.CreateResponse(JsonResponse.CreateSuccessResponse());
+            return Request.CreateResponse(recipe);
         }
     }
 }

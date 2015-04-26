@@ -7,11 +7,12 @@ namespace RecipeRepo.WebApi.Controllers.ControllerRequirements.Concrete
     public class ControllerRequirements : IRequirements
     {
         public IQueryGenerator QueryGenerator { get;  private set; }
-        public ICommandGenerator CommandGenerator { get { throw new System.NotImplementedException(); } }
+        public ICommandGenerator CommandGenerator { get; private set; }
 
-        public ControllerRequirements(IQueryGenerator queryGenerator)
+        public ControllerRequirements(IQueryGenerator queryGenerator, ICommandGenerator commandGenerator)
         {
             QueryGenerator = queryGenerator;
+            CommandGenerator = commandGenerator;
         }
     }
 }

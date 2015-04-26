@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Abstract\BaseCommand.cs" />
-    <Compile Include="Commands\CommandGenerator\CommandGenerator.cs" />
+    <Compile Include="Commands\CommandGenerator\Concrete\CommandGenerator.cs" />
     <Compile Include="Commands\CommandGenerator\EntityCommandGenerators\Abstract\EntityCommandGenerator.cs" />
     <Compile Include="Commands\CommandGenerator\EntityCommandGenerators\Concrete\RecipeCommandGenerator.cs" />
     <Compile Include="Commands\Concrete\Recipe\CreateRecipeCommand.cs" />

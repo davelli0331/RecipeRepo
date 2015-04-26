@@ -112,9 +112,9 @@
       <Project>{ff99bde1-77b6-4d88-b224-4a36ba4e4541}</Project>
       <Name>RecipeRepo.WebApi.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RecipeRepo\RecipeRepo.WebApi.Ractive.csproj">
+    <ProjectReference Include="..\RecipeRepo\RecipeRepo.WebApi.Backbone.csproj">
       <Project>{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}</Project>
-      <Name>RecipeRepo.WebApi.Ractive</Name>
+      <Name>RecipeRepo.WebApi.Backbone</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

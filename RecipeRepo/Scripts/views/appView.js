@@ -1,13 +1,13 @@
 define(['jquery',
         'underscore',
         'backbone',
-        'anchorclickhandler',
         'app/globalevents',
+        'app/systemstrings',
         'app/recipescollection',
         'views/recipeListView',
         'views/recipeDetailsView',
         'views/recipeAddView'],
-    function ($, _, Backbone, anchorClickHandler, GlobalEvents, RecipesCollection, RecipeListView, RecipeDetailsView, RecipeAddView) {
+    function ($, _, Backbone, GlobalEvents, SystemStrings, RecipesCollection, RecipeListView, RecipeDetailsView, RecipeAddView) {
         'use strict';
 
         var appView;
@@ -17,7 +17,7 @@ define(['jquery',
         });
 
         appView = Backbone.View.extend({
-            el: $("#div-body"),
+            el: $("#div-views"),
 
             initialize: function () {
                 this.searchInput = $('#text-search');
@@ -33,10 +33,11 @@ define(['jquery',
 
                 GlobalEvents.on('recipes:detail', this.recipeDetail, this);
                 GlobalEvents.on('recipes:add', this.addRecipe, this);
+                GlobalEvents.on(SystemStrings.events.views.DefaultViewRequested, this.render, this);
             },
 
             events: {
-                "click button": "searchRecipes"
+                "click #button-search": "searchRecipes"
             },
 
             render: function () {
@@ -45,7 +46,9 @@ define(['jquery',
                 });
                 reciplesListView.render();
 
-                this.$el.append(reciplesListView.el);
+                this.$el
+                    .empty()
+                    .append(reciplesListView.el);
             },
             searchRecipes: function () {
                 var me = this;
@@ -75,7 +78,9 @@ define(['jquery',
             },
 
             addRecipe: function () {
-                var addView = new RecipeAddView();
+                var addView = new RecipeAddView({
+                    model: this.recipes
+                });
                 addView.render();
 
                 this.$el

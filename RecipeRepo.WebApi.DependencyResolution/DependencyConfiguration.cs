@@ -1,5 +1,7 @@
 ﻿using Ninject;
 using RecipeRepo.Crud.Concrete;
+using RecipeRepo.Crud.Concrete.Commands.CommandGenerator.Concrete;
+using RecipeRepo.Crud.Contracts.CreateUpdateDelete;
 using RecipeRepo.Crud.Contracts.Retreive.QueryGenerator.Abstract;
 using RecipeRepo.Repository.Contracts;
 using RecipeRepo.Repository.Json;
@@ -23,6 +25,10 @@ namespace RecipeRepo.WebApi.DependencyResolution
             kernel
                 .Bind<IRequirements>()
                 .To<ControllerRequirements>();
+
+            kernel
+                .Bind<ICommandGenerator>()
+                .To<CommandGenerator>();
         }
     }
 }

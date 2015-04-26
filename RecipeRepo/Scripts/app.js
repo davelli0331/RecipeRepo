@@ -16,8 +16,8 @@ require.config({
     }
 });
 
-require(['jquery', 'underscore', 'backbone', 'handlebars', 'views/appView'],
-    function ($, _, Backbone, Handlebars, AppView) {
+require(['jquery', 'underscore', 'backbone', 'handlebars', 'views/appView', 'anchorclickhandler'],
+    function ($, _, Backbone, Handlebars, AppView, RecipeRouters) {
         'use strict';
 
         var appView = new AppView();

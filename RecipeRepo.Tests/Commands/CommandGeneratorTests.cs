@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RecipeRepo.Crud.Concrete.Commands.CommandGenerator;
+using RecipeRepo.Crud.Concrete.Commands.CommandGenerator.Concrete;
 using RecipeRepo.Repository.Contracts;
 using RecipeRepo.Domain;
 using RecipeRepo.Crud.Concrete.Commands.RecipeCommands;

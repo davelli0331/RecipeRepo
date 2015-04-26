@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.Ractive", "RecipeRepo\RecipeRepo.WebApi.Ractive.csproj", "{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.Backbone", "RecipeRepo\RecipeRepo.WebApi.Backbone.csproj", "{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.Tests", "RecipeRepo.Tests\RecipeRepo.Tests.csproj", "{06465735-1998-4B3D-8714-16B57311F905}"
 EndProject

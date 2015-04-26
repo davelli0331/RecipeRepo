@@ -6,9 +6,9 @@ namespace RecipeRepo.Crud.Concrete.Commands.RecipeCommands
 {
     public class CreateRecipeCommand : BaseCommand
     {
-        private readonly Recipe _recipe;
+        private readonly Recipe[] _recipe;
 
-        public CreateRecipeCommand(IRepository repository, Recipe recipe)
+        public CreateRecipeCommand(IRepository repository, params Recipe[] recipe)
             : base(repository)
         {
             Repository = repository;
@@ -17,9 +17,12 @@ namespace RecipeRepo.Crud.Concrete.Commands.RecipeCommands
 
         protected override void ExecuteCommand()
         {
-            Repository
-                .Create(_recipe)
-                .SaveChanges();
+            foreach (var recipe in _recipe)
+            {
+                Repository.Create(recipe);
+            }
+            
+            Repository.SaveChanges();
         }
     }
 }
