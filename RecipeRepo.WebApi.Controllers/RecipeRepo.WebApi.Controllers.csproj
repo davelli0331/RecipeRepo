@@ -70,7 +70,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RecipeRepo.Contracts.Crud\RecipeRepo.Crud.Contracts.csproj">
+    <ProjectReference Include="..\RecipeRepo.Crud.Contracts\RecipeRepo.Crud.Contracts.csproj">
       <Project>{49c11ee8-894a-4dff-8d7f-a9340cdeb1f9}</Project>
       <Name>RecipeRepo.Crud.Contracts</Name>
     </ProjectReference>
