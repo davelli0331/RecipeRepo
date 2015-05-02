@@ -8,6 +8,7 @@ namespace RecipeRepo.Crud.Contracts.CreateUpdateDelete
 {
     public enum CommandType
     {
-        Create = 1
+        Create = 1,
+        Delete = 2
     }
 }

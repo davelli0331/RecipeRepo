@@ -42,5 +42,15 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
 
             return Request.CreateResponse(recipe);
         }
+
+        public HttpResponseMessage Delete(Recipe recipe)
+        {
+            ControllerRequirements.CommandGenerator
+                .For(recipe)
+                .ThatWill(CommandType.Delete)
+                .Execute();
+
+            return Request.CreateResponse(JsonResponse.CreateSuccessResponse());
+        }
     }
 }

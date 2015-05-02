@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using RecipeRepo.Domain;
 using RecipeRepo.Tests.EntityBuilders;
 using RecipeRepo.Tests.Utility;
@@ -95,6 +96,17 @@ namespace RecipeRepo.Tests.Web
 
             Assert.AreEqual("Test", result.Title);
             Assert.AreEqual("Test", result.Description);
+        }
+
+        [TestMethod]
+        public void RecipeController_Delete_Succeeds()
+        {
+            var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
+            var response = controller.Delete(new Recipe { Title = "Test", Description = "Test" });
+
+            var result = Deserialize<JsonResponse>(response.Content);
+
+            _mockCommandGenerator.Verify(c => c.For<Recipe>(It.Is<Recipe>(r => r.Title == "Test" && r.Description == "Test")), Times.Once());
         }
     }
 }
