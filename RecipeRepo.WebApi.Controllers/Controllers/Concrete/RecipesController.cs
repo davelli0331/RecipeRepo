@@ -43,10 +43,10 @@ namespace RecipeRepo.WebApi.Controllers.Concrete
             return Request.CreateResponse(recipe);
         }
 
-        public HttpResponseMessage Delete(Recipe recipe)
+        public HttpResponseMessage Delete(int id)
         {
             ControllerRequirements.CommandGenerator
-                .For(recipe)
+                .For(new Recipe { Id = id })
                 .ThatWill(CommandType.Delete)
                 .Execute();
 

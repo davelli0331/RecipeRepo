@@ -102,11 +102,11 @@ namespace RecipeRepo.Tests.Web
         public void RecipeController_Delete_Succeeds()
         {
             var controller = ControllerFactory.CreateController(() => new RecipesController(_mockRequirements.Object));
-            var response = controller.Delete(new Recipe { Title = "Test", Description = "Test" });
+            var response = controller.Delete(1);
 
             var result = Deserialize<JsonResponse>(response.Content);
 
-            _mockCommandGenerator.Verify(c => c.For<Recipe>(It.Is<Recipe>(r => r.Title == "Test" && r.Description == "Test")), Times.Once());
+            _mockCommandGenerator.Verify(c => c.For<Recipe>(It.Is<Recipe>(r => r.Id == 1)), Times.Once());
         }
     }
 }
