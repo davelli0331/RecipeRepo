@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.Crud.Contracts",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.Backbone", "RecipeRepo.WebApi.Backbone\RecipeRepo.WebApi.Backbone.csproj", "{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.RecipeRepoJS", "RecipeRepo.WebApi.RecipeRepoJS\RecipeRepo.WebApi.RecipeRepoJS.csproj", "{04B910F8-656C-40B9-80A5-F995431FABCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A04947C4-EDA9-4B6A-BD0B-49198C360AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B910F8-656C-40B9-80A5-F995431FABCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B910F8-656C-40B9-80A5-F995431FABCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B910F8-656C-40B9-80A5-F995431FABCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B910F8-656C-40B9-80A5-F995431FABCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
