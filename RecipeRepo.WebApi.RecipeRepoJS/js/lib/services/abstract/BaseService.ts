@@ -1,5 +1,5 @@
 /// <reference path="IService.ts" />
-class Service {
+class Service implements IService {
 	getJson: Function;
 	postJson: Function;
 	putJson: Function;

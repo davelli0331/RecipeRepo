@@ -23,6 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.Backbone"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepo.WebApi.RecipeRepoJS", "RecipeRepo.WebApi.RecipeRepoJS\RecipeRepo.WebApi.RecipeRepoJS.csproj", "{04B910F8-656C-40B9-80A5-F995431FABCD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ADF2CDDF-1D3F-4DAA-92B0-CB245651AE6A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
