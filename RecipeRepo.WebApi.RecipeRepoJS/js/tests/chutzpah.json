@@ -1,11 +1,3 @@
 {
-	"Framework": "jasmine",
-	"References": [{
-		"Path": "../RecipeRepo.js" 
-	}, {
-		"Path": "../../scripts/jasmine-matchers.js"
-	}, {
-		"Path": "../dependencies/",
-		"Includes" : ["*.js"]
-	}]
+    "Framework": "jasmine"
 }

@@ -20,7 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,15 +59,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\RecipeRepo.js" />
-    <Content Include="js\tests\modelTests\BaseModelTests.js" />
+    <TypeScriptCompile Include="js\tests\collectionTests\BaseCollectionTests.ts" />
+    <TypeScriptCompile Include="js\tests\modelTests\BaseModelTests.ts" />
+    <Content Include="js\dependencies\jasmine-matchers.js" />
     <Content Include="packages.config" />
     <Content Include="js\tests\chutzpah.json" />
     <None Include="scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="js\dependencies\jquery-2.1.4.js" />
+    <Content Include="scripts\jquery-2.1.4.js" />
+    <Content Include="RecipeRepo.js" />
     <Content Include="scripts\jquery-2.1.4.min.js" />
     <Content Include="scripts\jquery-2.1.4.min.map" />
-    <Content Include="js\dependencies\underscore.js" />
+    <Content Include="scripts\underscore.js" />
     <Content Include="scripts\underscore.min.js" />
     <Content Include="scripts\underscore.min.map" />
     <None Include="Web.Debug.config">
@@ -76,6 +78,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <TypeScriptCompile Include="scripts\typings\jasmine-matchers\jasmine-matchers.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\jasmine\jasmine.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\jasmine.css" />
@@ -85,7 +89,6 @@
     <Content Include="scripts\boot.js" />
     <Content Include="scripts\console.js" />
     <Content Include="scripts\jasmine-html.js" />
-    <Content Include="js\dependencies\jasmine-matchers.js" />
     <Content Include="scripts\jasmine.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -96,6 +99,7 @@
     <Folder Include="js\lib\services\concrete\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="js\lib\collections\abstract\Collection.ts" />
     <TypeScriptCompile Include="js\lib\models\abstract\BaseModel.ts" />
     <TypeScriptCompile Include="js\lib\models\concrete\RecipeModel.ts" />
     <TypeScriptCompile Include="js\lib\services\abstract\BaseService.ts" />
@@ -113,6 +117,7 @@
     <TypeScriptSourceMap>False</TypeScriptSourceMap>
     <TypeScriptOutFile>RecipeRepo.js</TypeScriptOutFile>
     <TypeScriptOutDir>C:\Solutions\RecipeRepo\Source\RecipeRepo.WebApi.RecipeRepoJS\js</TypeScriptOutDir>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

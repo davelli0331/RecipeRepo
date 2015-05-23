@@ -1,8 +1,17 @@
-﻿class BaseModel {
+﻿/// <reference path="../../services/abstract/iservice.ts" />
+class BaseModel {
     private controller: IService;
     private isDirty: boolean;
     private isNew: boolean;
     private testField: string;
+
+    get IsNew() {
+        return this.isNew;
+    }
+
+    get IsDirty() {
+        return this.isDirty;
+    }
 
     constructor(controller: IService) {
         this.controller = controller;
@@ -30,4 +39,6 @@
     toJson() {
         return {};
     }
+
+    
 }
