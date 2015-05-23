@@ -1,12 +1,10 @@
-
-
-
-
-var BaseModel = (function () {
+﻿var BaseModel = (function () {
     function BaseModel(controller) {
         this.controller = controller;
+
         this.isDirty = false;
         this.isNew = true;
+        this.testField = "";
     }
     BaseModel.prototype.save = function () {
         if (this.isNew) {
@@ -15,17 +13,16 @@ var BaseModel = (function () {
                 me.isNew = false;
                 me.isDirty = false;
             });
-        }
-        else if (this.isDirty) {
+        } else if (this.isDirty) {
             return this.controller.putJson(this.toJson());
         }
     };
+
     BaseModel.prototype.toJson = function () {
         return {};
     };
     return BaseModel;
 })();
-
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -36,11 +33,12 @@ var RecipeModel = (function (_super) {
     __extends(RecipeModel, _super);
     function RecipeModel(controller, recipeName) {
         _super.call(this, controller);
+
         this.RecipeName = recipeName;
     }
     return RecipeModel;
 })(BaseModel);
-
+/// <reference path="IService.ts" />
 var Service = (function () {
     function Service(options) {
         this.getJson = options.getJson;
@@ -50,3 +48,5 @@ var Service = (function () {
     }
     return Service;
 })();
+/// <reference path="lib/services/abstract/IService.ts" />
+/// <reference path="lib/models/abstract/BaseModel.ts" />

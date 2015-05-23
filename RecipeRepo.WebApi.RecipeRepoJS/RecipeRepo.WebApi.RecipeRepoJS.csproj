@@ -62,7 +62,14 @@
     <Content Include="js\RecipeRepo.js" />
     <Content Include="js\tests\modelTests\BaseModelTests.js" />
     <Content Include="packages.config" />
-    <Content Include="js\tests\spec\support\jasmine.json" />
+    <Content Include="js\tests\chutzpah.json" />
+    <None Include="scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="js\dependencies\jquery-2.1.4.js" />
+    <Content Include="scripts\jquery-2.1.4.min.js" />
+    <Content Include="scripts\jquery-2.1.4.min.map" />
+    <Content Include="js\dependencies\underscore.js" />
+    <Content Include="scripts\underscore.min.js" />
+    <Content Include="scripts\underscore.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,6 +85,7 @@
     <Content Include="scripts\boot.js" />
     <Content Include="scripts\console.js" />
     <Content Include="scripts\jasmine-html.js" />
+    <Content Include="js\dependencies\jasmine-matchers.js" />
     <Content Include="scripts\jasmine.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -88,17 +96,10 @@
     <Folder Include="js\lib\services\concrete\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="js\definitions\BaseService.d.ts" />
-    <TypeScriptCompile Include="js\definitions\IService.d.ts" />
-    <TypeScriptCompile Include="js\definitions\models\abstract\BaseModel.d.ts" />
-    <TypeScriptCompile Include="js\definitions\models\concrete\RecipeModel.d.ts" />
-    <TypeScriptCompile Include="js\definitions\services\abstract\BaseService.d.ts" />
-    <TypeScriptCompile Include="js\definitions\services\abstract\IService.d.ts" />
-    <TypeScriptCompile Include="js\definitions\_references.d.ts" />
+    <TypeScriptCompile Include="js\lib\models\abstract\BaseModel.ts" />
+    <TypeScriptCompile Include="js\lib\models\concrete\RecipeModel.ts" />
     <TypeScriptCompile Include="js\lib\services\abstract\BaseService.ts" />
     <TypeScriptCompile Include="js\lib\services\abstract\IService.ts" />
-    <TypeScriptCompile Include="js\lib\services\models\abstract\BaseModel.ts" />
-    <TypeScriptCompile Include="js\lib\services\models\concrete\RecipeModel.ts" />
     <TypeScriptCompile Include="js\_references.ts" />
   </ItemGroup>
   <PropertyGroup>
@@ -106,6 +107,13 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>False</TypeScriptSourceMap>
+    <TypeScriptOutFile>RecipeRepo.js</TypeScriptOutFile>
+    <TypeScriptOutDir>C:\Solutions\RecipeRepo\Source\RecipeRepo.WebApi.RecipeRepoJS\js</TypeScriptOutDir>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
