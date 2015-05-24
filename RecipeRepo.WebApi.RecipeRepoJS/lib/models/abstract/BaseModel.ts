@@ -1,9 +1,7 @@
-﻿/// <reference path="../../services/abstract/iservice.ts" />
-class BaseModel {
-    private controller: IService;
+﻿class BaseModel {
+    private controller: IController;
     private isDirty: boolean;
     private isNew: boolean;
-    private testField: string;
 
     get IsNew() {
         return this.isNew;
@@ -13,24 +11,23 @@ class BaseModel {
         return this.isDirty;
     }
 
-    constructor(controller: IService) {
+    constructor(controller?: IController) {
         this.controller = controller;
 
-        this.isDirty = false;
+        this.isDirty = true;
         this.isNew = true;
-        this.testField = "";
-
     }
 
-    save() {
+    Save() {
         if (this.isNew) {
             var me = this;
             this.controller
                 .postJson(this.toJson())
-                .done(function (response) {
-                    me.isNew = false;
-                    me.isDirty = false;
-                });
+                .then((response: any) => {
+                me.isDirty = false;
+                me.isDirty = false;
+            })
+                .catch((response: any) => { });
         } else if (this.isDirty) {
             return this.controller.putJson(this.toJson());
         }
@@ -40,5 +37,5 @@ class BaseModel {
         return {};
     }
 
-    
+
 }

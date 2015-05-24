@@ -1,7 +1,8 @@
 class RecipeModel extends BaseModel {
+
     RecipeName: string;
 
-    constructor(controller: IService, recipeName: string) {
+    constructor(controller: IController, recipeName: string) {
         super(controller);
 
         this.RecipeName = recipeName;

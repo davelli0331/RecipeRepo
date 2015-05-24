@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,14 +60,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="js\tests\collectionTests\BaseCollectionTests.ts" />
-    <TypeScriptCompile Include="js\tests\modelTests\BaseModelTests.ts" />
-    <Content Include="js\dependencies\jasmine-matchers.js" />
+    <TypeScriptCompile Include="tests\mockController.ts" />
+    <TypeScriptCompile Include="tests\BaseModelTests.ts" />
+    <Content Include="scripts\jasmine-matchers.js" />
     <Content Include="packages.config" />
-    <Content Include="js\tests\chutzpah.json" />
+    <Content Include="tests\chutzpah.json" />
     <None Include="scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="scripts\es6-promise.js" />
     <Content Include="scripts\jquery-2.1.4.js" />
-    <Content Include="RecipeRepo.js" />
     <Content Include="scripts\jquery-2.1.4.min.js" />
     <Content Include="scripts\jquery-2.1.4.min.map" />
     <Content Include="scripts\underscore.js" />
@@ -78,6 +79,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jasmine-matchers\jasmine-matchers.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jasmine\jasmine.d.ts" />
   </ItemGroup>
@@ -95,16 +97,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="js\lib\services\concrete\" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="js\lib\collections\abstract\Collection.ts" />
-    <TypeScriptCompile Include="js\lib\models\abstract\BaseModel.ts" />
-    <TypeScriptCompile Include="js\lib\models\concrete\RecipeModel.ts" />
-    <TypeScriptCompile Include="js\lib\services\abstract\BaseService.ts" />
-    <TypeScriptCompile Include="js\lib\services\abstract\IService.ts" />
-    <TypeScriptCompile Include="js\_references.ts" />
+    <TypeScriptCompile Include="lib\models\abstract\BaseModel.ts" />
+    <TypeScriptCompile Include="lib\models\concrete\RecipeModel.ts" />
+    <TypeScriptCompile Include="lib\controllers\abstract\IController.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -115,8 +112,6 @@
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
     <TypeScriptSourceMap>False</TypeScriptSourceMap>
-    <TypeScriptOutFile>RecipeRepo.js</TypeScriptOutFile>
-    <TypeScriptOutDir>C:\Solutions\RecipeRepo\Source\RecipeRepo.WebApi.RecipeRepoJS\js</TypeScriptOutDir>
     <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

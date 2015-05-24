@@ -1,6 +1,7 @@
-/// <reference path="scripts/typings/jasmine/jasmine.d.ts" />
 /// <reference path="scripts/typings/jasmine-matchers/jasmine-matchers.d.ts" />
-interface IService {
+/// <reference path="scripts/typings/es6-promise/es6-promise.d.ts" />
+/// <reference path="scripts/typings/jasmine/jasmine.d.ts" />
+interface IController {
     getJson: Function;
     postJson: Function;
     putJson: Function;
@@ -10,32 +11,26 @@ declare class BaseModel {
     private controller;
     private isDirty;
     private isNew;
-    private testField;
     IsNew: boolean;
     IsDirty: boolean;
-    constructor(controller: IService);
-    save(): any;
+    constructor(controller?: IController);
+    Save(): any;
     toJson(): {};
-}
-declare class mockService implements IService {
-    getJson(): void;
-    postJson(): void;
-    putJson(): void;
-    deleteJson(): void;
-}
-declare class Collection<TItem> {
-    private items;
-    constructor();
-    Add(item: TItem): void;
 }
 declare class RecipeModel extends BaseModel {
     RecipeName: string;
-    constructor(controller: IService, recipeName: string);
+    constructor(controller: IController, recipeName: string);
 }
-declare class Service implements IService {
+declare class Service implements IController {
     getJson: Function;
     postJson: Function;
     putJson: Function;
     deleteJson: Function;
-    constructor(options: IService);
+    constructor(options: IController);
+}
+declare class mockService implements IController {
+    getJson(): void;
+    postJson(): Promise<{}>;
+    putJson(): void;
+    deleteJson(): void;
 }
