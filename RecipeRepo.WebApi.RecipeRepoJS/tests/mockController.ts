@@ -1,7 +1,18 @@
 ﻿class mockController implements IController {
+    private options: { postShouldFail?: boolean };
+
+    constructor(options?: { postShouldFail?: boolean }) {
+        this.options = options;
+    }
+
     postJson(json: any) {
+        var me = this;
         var promise = new Promise(function (resolve, reject) {
-            resolve();
+            if (!me.options.postShouldFail) {
+                resolve();
+            } else {
+                reject();
+            }
         });
 
         return promise;

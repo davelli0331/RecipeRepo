@@ -1,9 +1,16 @@
 var mockController = (function () {
-    function mockController() {
+    function mockController(options) {
+        this.options = options;
     }
     mockController.prototype.postJson = function (json) {
+        var me = this;
         var promise = new Promise(function (resolve, reject) {
-            resolve();
+            if (!me.options.postShouldFail) {
+                resolve();
+            }
+            else {
+                reject();
+            }
         });
         return promise;
     };

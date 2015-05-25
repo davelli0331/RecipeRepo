@@ -18,18 +18,31 @@
         this.isNew = true;
     }
 
-    Save() {
+    Save(options?: { onSuccess?: (successReponse?: any) => void; onFailure?: (failureResponse?: any) => void; }) {
+        options = options || {};
+
         if (this.isNew) {
             var me = this;
             this.controller
                 .postJson(this.toJson())
                 .then((response: any) => {
                 me.isDirty = false;
-                me.isDirty = false;
+                me.isNew = false;
+
+                if (options.onSuccess) {
+                    options.onSuccess();
+                }
             })
-                .catch((response: any) => { });
+                .catch((response: any) => {
+                if (options.onFailure) {
+                    options.onFailure(response);
+                }
+            });
         } else if (this.isDirty) {
-            return this.controller.putJson(this.toJson());
+            this.controller
+                .putJson(this.toJson())
+                .then((response: any) => {
+            });
         }
     }
 

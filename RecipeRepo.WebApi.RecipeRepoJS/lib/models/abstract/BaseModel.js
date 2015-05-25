@@ -18,19 +18,30 @@ var BaseModel = (function () {
         enumerable: true,
         configurable: true
     });
-    BaseModel.prototype.Save = function () {
+    BaseModel.prototype.Save = function (options) {
+        options = options || {};
         if (this.isNew) {
             var me = this;
             this.controller
                 .postJson(this.toJson())
                 .then(function (response) {
                 me.isDirty = false;
-                me.isDirty = false;
+                me.isNew = false;
+                if (options.onSuccess) {
+                    options.onSuccess();
+                }
             })
-                .catch(function (response) { });
+                .catch(function (response) {
+                if (options.onFailure) {
+                    options.onFailure(response);
+                }
+            });
         }
         else if (this.isDirty) {
-            return this.controller.putJson(this.toJson());
+            this.controller
+                .putJson(this.toJson())
+                .then(function (response) {
+            });
         }
     };
     BaseModel.prototype.toJson = function () {

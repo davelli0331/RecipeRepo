@@ -5,6 +5,9 @@ declare class BaseModel {
     IsNew: boolean;
     IsDirty: boolean;
     constructor(controller?: IController);
-    Save(): Promise<any>;
+    Save(options?: {
+        onSuccess?: (successReponse?: any) => void;
+        onFailure?: (failureResponse?: any) => void;
+    }): void;
     toJson(): {};
 }

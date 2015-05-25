@@ -1,8 +1,5 @@
-describe("Base Model ", function () {
+describe("Base Model ", () => {
 
-	it("is a test", function () {
-		expect('foo').toBe('bar');
-	});
 	describe("constructor ", () => {
 		it("sets isNew to true", function () {
 			var model = new BaseModel(new mockController());
@@ -17,12 +14,50 @@ describe("Base Model ", function () {
 		});
 	});
 
-	describe("save ",() => {
-		it("sets isNew to false",() => {
-			var model = new BaseModel(new mockController());
-			model.Save();
+    describe("save ",() => {
+        var model: BaseModel;
+        
+        describe("succeeds ",() => {
+            beforeEach((done: () => void) => {
+                model = new BaseModel(new mockController({
+                    postShouldFail: false
+                }));
+                model.Save({
+                    onSuccess: function () {
+                        done();
+                    }
+                });
+            });
 
-			expect(model.IsNew).toBeFalsy();
-		});
+            it("sets isNew to false", () => {
+                expect(model.IsNew).toBeFalsy();
+            });
+
+            it("sets isDirty to false", () => {
+                expect(model.IsDirty).toBeFalsy();
+            });
+        });
+
+        describe("fails ",() => {
+            beforeEach((done: () => void) => {
+                model = new BaseModel(new mockController({
+                    postShouldFail: true
+                }));
+
+                model.Save({
+                    onFailure: function () {
+                        done();
+                    }
+                });
+            });
+
+            it("isNew remains true",() => {
+                expect(model.IsNew).toBeTruthy();
+            });
+
+            it("isDirty remains true",() => {
+                expect(model.IsDirty).toBeTruthy();
+            });
+        });
 	});
 });
