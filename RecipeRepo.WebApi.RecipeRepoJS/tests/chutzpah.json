@@ -1,29 +1,30 @@
 {
-    "Framework": "jasmine",
+  "Framework": "jasmine",
 
-    "Compile": {
-        "Extensions": [ ".ts" ],
-        "ExtensionsWithNoOutput": [ ".d.ts" ],
-        "Mode": "External"
+  "Compile": {
+    "Extensions": [ ".ts" ],
+    "ExtensionsWithNoOutput": [ ".d.ts" ],
+    "Mode": "External"
+  },
+
+  "References": [
+    {
+      "Excludes": [ "*.intellisense.js", "*.min.js", "*.map", "*jasmine.js*", "*jasmine-html.js*", "*boot.js*", "*.runtime.*", "handlebars.*.amd.*", "*handlebars.amd.*" ],
+      "Includes": [ "*.js" ],
+      "Path": "../scripts"
     },
-
-    "References": [
-        {
-            "Excludes": [ "*.intellisense.js", "*.min.js", "*.map", "*jasmine.js*", "*jasmine-html.js*", "*boot.js*" ],
-            "Includes": [ "*.js" ],
-            "Path": "../scripts"
-        },
-        {
-            "Includes": [ "*mockController.js" ]
-        },
-        {
-            "Path": "../lib",
-            "Includes": [ "*.js" ]
-        }
-    ],
-    "Tests": [
-        {
-            "Includes": [ "*Tests.ts" ]
-        }
-    ]
+    {
+      "Includes": [ "*mockController.js" ]
+    },
+    {
+      "Path": "../lib",
+      "Includes": [ "*.js" ]
+    }
+  ],
+  "Tests": [
+    {
+      "Path": "./",
+      "Includes": [ "*Tests.ts" ]
+    }
+  ]
 }

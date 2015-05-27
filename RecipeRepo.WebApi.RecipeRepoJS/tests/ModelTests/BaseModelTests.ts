@@ -1,4 +1,4 @@
-describe("Base Model ", () => {
+describe("Base Model ",() => {
 
 	describe("constructor ", () => {
 		it("sets isNew to true", function () {

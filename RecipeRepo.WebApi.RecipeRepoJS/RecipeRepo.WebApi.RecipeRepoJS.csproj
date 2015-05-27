@@ -60,11 +60,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="tests\mockController.ts" />
-    <TypeScriptCompile Include="tests\BaseModelTests.ts" />
+    <TypeScriptCompile Include="lib\views\abstract\BaseView.ts" />
+    <TypeScriptCompile Include="scripts\typings\handlebars\handlebars.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="tests\Mocks\mockController.ts" />
+    <TypeScriptCompile Include="tests\ModelTests\BaseModelTests.ts" />
+    <Content Include="scripts\handlebars.amd.js" />
+    <Content Include="scripts\handlebars.amd.min.js" />
+    <Content Include="scripts\handlebars.js" />
+    <Content Include="scripts\handlebars.min.js" />
+    <Content Include="scripts\handlebars.runtime.amd.js" />
+    <Content Include="scripts\handlebars.runtime.amd.min.js" />
+    <Content Include="scripts\handlebars.runtime.js" />
+    <Content Include="scripts\handlebars.runtime.min.js" />
     <Content Include="scripts\jasmine-matchers.js" />
     <Content Include="packages.config" />
     <Content Include="tests\chutzpah.json" />
+    <Content Include="App_Readme\Handlebarsjs_README.md" />
+    <Content Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="scripts\es6-promise.js" />
     <Content Include="scripts\jquery-2.1.4.js" />
@@ -82,6 +95,7 @@
     <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jasmine-matchers\jasmine-matchers.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jasmine\jasmine.d.ts" />
+    <TypeScriptCompile Include="tests\ViewTests\BaseViewTests.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\jasmine.css" />
