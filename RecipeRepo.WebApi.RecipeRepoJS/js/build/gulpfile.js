@@ -7,16 +7,31 @@ var gulp = require('gulp'),
 	
 gulp.task('typeScriptCompilation', function () {
 	return gulp
-		.src(['../lib/**/*.ts', '../_references.ts'])
+		.src([
+            '../../lib/**/*.ts',
+            '!../../lib/**/*.d.ts'])
 		.pipe(ts({
-			declarationFiles: true,
-			noExternalResolve: true,
-			removeComments: true
+		    out: 'RecipeRepo.js',
+		    target: 'ES5'
 		}))
-			.pipe(concat('RecipeRepo.js'))		
-			.pipe(gulp.dest('../'));
+			.js.pipe(gulp.dest('../../'));
+});
+
+gulp.task('concatAllFiles', ['typeScriptCompilation'], function () {
+    return gulp.src([
+        '../../scripts/es6-promise.js',
+        '../../scripts/handlebars.js',
+        '../../scripts/underscore.js',
+        '../../scripts/jquery*.js',
+        '!../../scripts/*.intellisense.js',
+        '!../../scripts/*.min.js',
+        '../../RecipeRepo.js'
+    ])
+    .pipe(concat('RecipeRepo.js'))
+    //.pipe(uglify())
+    .pipe(gulp.dest('../../'));
 });
 
 gulp.task('default', function () {
-	gulp.start(['typeScriptCompilation']);	
+    gulp.start(['typeScriptCompilation', 'concatAllFiles']);	
 });

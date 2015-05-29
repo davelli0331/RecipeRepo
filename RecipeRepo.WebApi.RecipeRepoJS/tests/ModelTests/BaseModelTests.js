@@ -1,11 +1,11 @@
 describe("Base Model ", function () {
     describe("constructor ", function () {
         it("sets isNew to true", function () {
-            var model = new BaseModel(new mockController());
+            var model = new Models.BaseModel(new mockController());
             expect(model.IsNew).toBeTruthy();
         });
         it("sets isDirty to true", function () {
-            var model = new BaseModel(new mockController());
+            var model = new Models.BaseModel(new mockController());
             expect(model.IsDirty).toBeTruthy();
         });
     });
@@ -13,7 +13,7 @@ describe("Base Model ", function () {
         var model;
         describe("succeeds ", function () {
             beforeEach(function (done) {
-                model = new BaseModel(new mockController({
+                model = new Models.BaseModel(new mockController({
                     postShouldFail: false
                 }));
                 model.Save({
@@ -31,7 +31,7 @@ describe("Base Model ", function () {
         });
         describe("fails ", function () {
             beforeEach(function (done) {
-                model = new BaseModel(new mockController({
+                model = new Models.BaseModel(new mockController({
                     postShouldFail: true
                 }));
                 model.Save({

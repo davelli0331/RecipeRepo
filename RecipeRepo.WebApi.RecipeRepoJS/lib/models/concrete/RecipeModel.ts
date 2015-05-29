@@ -1,10 +1,12 @@
-class RecipeModel extends BaseModel {
+module Models {
+    export class RecipeModel extends BaseModel {
 
-    RecipeName: string;
+        RecipeName: string;
 
-    constructor(controller: IController, recipeName: string) {
-        super(controller);
+        constructor(controller: IController, recipeName: string) {
+            super(controller);
 
-        this.RecipeName = recipeName;
+            this.RecipeName = recipeName;
+        }
     }
 }

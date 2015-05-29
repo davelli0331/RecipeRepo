@@ -1,3 +1,14 @@
+/// <reference path="C:\Solutions\RecipeRepo\Source\RecipeRepo.WebApi.RecipeRepoJS\RecipeRepo.js" />
 (function () {
-	var model = new BaseModel();
+
+    var view = new Views.BaseView({
+        model: {
+            Title: "Test"
+        },
+        rootHtmlElement: $('#div-main-view'),
+        template: Handlebars.compile($('#recipe-listing-template').html())
+    });
+
+    view.Render();
+
 } ());

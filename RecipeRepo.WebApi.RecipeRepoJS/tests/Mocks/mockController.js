@@ -5,7 +5,7 @@ var mockController = (function () {
     mockController.prototype.postJson = function (json) {
         var me = this;
         var promise = new Promise(function (resolve, reject) {
-            if (!me.options.postShouldFail) {
+            if (!me.options.postOptions.postShouldFail) {
                 resolve();
             }
             else {
@@ -15,8 +15,9 @@ var mockController = (function () {
         return promise;
     };
     mockController.prototype.getJson = function (json) {
+        var me = this;
         return new Promise(function (resolve, reject) {
-            resolve();
+            resolve(me.options.getOptions.getShouldReturn);
         });
     };
     mockController.prototype.putJson = function (json) {

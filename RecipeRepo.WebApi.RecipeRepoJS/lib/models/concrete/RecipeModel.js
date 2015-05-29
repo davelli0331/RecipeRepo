@@ -4,11 +4,15 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-var RecipeModel = (function (_super) {
-    __extends(RecipeModel, _super);
-    function RecipeModel(controller, recipeName) {
-        _super.call(this, controller);
-        this.RecipeName = recipeName;
-    }
-    return RecipeModel;
-})(BaseModel);
+var Models;
+(function (Models) {
+    var RecipeModel = (function (_super) {
+        __extends(RecipeModel, _super);
+        function RecipeModel(controller, recipeName) {
+            _super.call(this, controller);
+            this.RecipeName = recipeName;
+        }
+        return RecipeModel;
+    })(Models.BaseModel);
+    Models.RecipeModel = RecipeModel;
+})(Models || (Models = {}));

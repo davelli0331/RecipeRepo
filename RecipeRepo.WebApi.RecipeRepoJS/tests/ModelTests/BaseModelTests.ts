@@ -2,24 +2,24 @@ describe("Base Model ",() => {
 
 	describe("constructor ", () => {
 		it("sets isNew to true", function () {
-			var model = new BaseModel(new mockController());
+			var model = new Models.BaseModel(new mockController());
 
 			expect(model.IsNew).toBeTruthy();
 		});
 
 		it("sets isDirty to true", () => {
-			var model = new BaseModel(new mockController());
+			var model = new Models.BaseModel(new mockController());
 
 			expect(model.IsDirty).toBeTruthy();
 		});
 	});
 
     describe("save ",() => {
-        var model: BaseModel;
+        var model: Models.BaseModel;
         
         describe("succeeds ",() => {
             beforeEach((done: () => void) => {
-                model = new BaseModel(new mockController({
+                model = new Models.BaseModel(new mockController({
                     postShouldFail: false
                 }));
                 model.Save({
@@ -40,7 +40,7 @@ describe("Base Model ",() => {
 
         describe("fails ",() => {
             beforeEach((done: () => void) => {
-                model = new BaseModel(new mockController({
+                model = new Models.BaseModel(new mockController({
                     postShouldFail: true
                 }));
 

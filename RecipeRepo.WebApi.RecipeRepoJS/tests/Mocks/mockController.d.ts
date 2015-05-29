@@ -1,7 +1,13 @@
 declare class mockController implements IController {
     private options;
     constructor(options?: {
-        postShouldFail?: boolean;
+        postOptions?: {
+            postShouldFail?: boolean;
+        };
+        getOptions?: {
+            getShouldReturn?: any;
+            getShouldFail?: boolean;
+        };
     });
     postJson(json: any): Promise<{}>;
     getJson(json: any): Promise<{}>;

@@ -63,8 +63,10 @@
     <TypeScriptCompile Include="lib\views\abstract\BaseView.ts" />
     <TypeScriptCompile Include="scripts\typings\handlebars\handlebars.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="tests\CollectionTests\BaseCollectionTests.ts" />
     <TypeScriptCompile Include="tests\Mocks\mockController.ts" />
     <TypeScriptCompile Include="tests\ModelTests\BaseModelTests.ts" />
+    <Content Include="RecipeRepo.js" />
     <Content Include="scripts\handlebars.amd.js" />
     <Content Include="scripts\handlebars.amd.min.js" />
     <Content Include="scripts\handlebars.js" />
