@@ -14,7 +14,9 @@ describe("Base Model ", function () {
         describe("succeeds ", function () {
             beforeEach(function (done) {
                 model = new Models.BaseModel(new mockController({
-                    postShouldFail: false
+                    postOptions: {
+                        postShouldFail: false
+                    }
                 }));
                 model.Save({
                     onSuccess: function () {
@@ -32,7 +34,9 @@ describe("Base Model ", function () {
         describe("fails ", function () {
             beforeEach(function (done) {
                 model = new Models.BaseModel(new mockController({
-                    postShouldFail: true
+                    postOptions: {
+                        postShouldFail: true
+                    }
                 }));
                 model.Save({
                     onFailure: function () {

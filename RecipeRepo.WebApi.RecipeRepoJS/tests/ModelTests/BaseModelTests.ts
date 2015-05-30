@@ -1,26 +1,28 @@
 describe("Base Model ",() => {
 
-	describe("constructor ", () => {
-		it("sets isNew to true", function () {
-			var model = new Models.BaseModel(new mockController());
+    describe("constructor ",() => {
+        it("sets isNew to true", function () {
+            var model = new Models.BaseModel(new mockController());
 
-			expect(model.IsNew).toBeTruthy();
-		});
+            expect(model.IsNew).toBeTruthy();
+        });
 
-		it("sets isDirty to true", () => {
-			var model = new Models.BaseModel(new mockController());
+        it("sets isDirty to true",() => {
+            var model = new Models.BaseModel(new mockController());
 
-			expect(model.IsDirty).toBeTruthy();
-		});
-	});
+            expect(model.IsDirty).toBeTruthy();
+        });
+    });
 
     describe("save ",() => {
         var model: Models.BaseModel;
-        
+
         describe("succeeds ",() => {
             beforeEach((done: () => void) => {
                 model = new Models.BaseModel(new mockController({
-                    postShouldFail: false
+                    postOptions: {
+                        postShouldFail: false
+                    }
                 }));
                 model.Save({
                     onSuccess: function () {
@@ -29,11 +31,11 @@ describe("Base Model ",() => {
                 });
             });
 
-            it("sets isNew to false", () => {
+            it("sets isNew to false",() => {
                 expect(model.IsNew).toBeFalsy();
             });
 
-            it("sets isDirty to false", () => {
+            it("sets isDirty to false",() => {
                 expect(model.IsDirty).toBeFalsy();
             });
         });
@@ -41,7 +43,9 @@ describe("Base Model ",() => {
         describe("fails ",() => {
             beforeEach((done: () => void) => {
                 model = new Models.BaseModel(new mockController({
-                    postShouldFail: true
+                    postOptions: {
+                        postShouldFail: true
+                    }
                 }));
 
                 model.Save({
@@ -59,5 +63,5 @@ describe("Base Model ",() => {
                 expect(model.IsDirty).toBeTruthy();
             });
         });
-	});
+    });
 });

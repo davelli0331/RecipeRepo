@@ -15,10 +15,9 @@ var mockController = (function () {
         return promise;
     };
     mockController.prototype.getJson = function (json) {
-        var me = this;
-        return new Promise(function (resolve, reject) {
-            resolve(me.options.getOptions.getShouldReturn);
-        });
+        var deferred = $.Deferred();
+        deferred.resolve(this.options.getOptions.getShouldReturn);
+        return deferred;
     };
     mockController.prototype.putJson = function (json) {
         return new Promise(function (resolve, reject) {

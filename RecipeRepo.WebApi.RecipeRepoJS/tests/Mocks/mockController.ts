@@ -37,11 +37,12 @@
         return promise;
     }
 
-    getJson(json: any) {
-        var me = this;
-        return new Promise((resolve, reject) => {
-            resolve(me.options.getOptions.getShouldReturn);
-        });
+    getJson(json?: any) {
+        var deferred = $.Deferred();
+
+        deferred.resolve(this.options.getOptions.getShouldReturn);
+
+        return deferred;
     }
 
     putJson(json: any) {
