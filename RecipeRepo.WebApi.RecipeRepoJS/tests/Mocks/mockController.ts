@@ -1,4 +1,4 @@
-﻿class mockController implements IController {
+﻿class mockController implements Controllers.IController {
     private options: {
         postOptions?: {
             postShouldFail?: boolean
@@ -37,12 +37,10 @@
         return promise;
     }
 
-    getJson(json?: any) {
-        var deferred = $.Deferred();
-
-        deferred.resolve(this.options.getOptions.getShouldReturn);
-
-        return deferred;
+    getJson(options?: any) {
+        if (!this.options.getOptions.getShouldFail) {
+            return Promise.resolve(this.options.getOptions.getShouldReturn);
+        }
     }
 
     putJson(json: any) {

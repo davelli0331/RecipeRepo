@@ -8,9 +8,12 @@ var Models;
 (function (Models) {
     var RecipeModel = (function (_super) {
         __extends(RecipeModel, _super);
-        function RecipeModel(controller, recipeName) {
+        function RecipeModel(controller, title, description, timeToPrepare) {
+            controller = controller || new Controllers.RecipeController();
             _super.call(this, controller);
-            this.RecipeName = recipeName;
+            this.Title = title;
+            this.Description = description;
+            this.TimeToPrepare = timeToPrepare;
         }
         return RecipeModel;
     })(Models.BaseModel);

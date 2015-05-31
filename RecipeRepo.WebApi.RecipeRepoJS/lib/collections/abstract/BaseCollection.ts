@@ -1,21 +1,27 @@
 ﻿module Collections {
     export class BaseCollection<TItem> {
-        private controller: IController;
+        private controller: Controllers.IController;
         protected items: Array<TItem>;
 
-        constructor(controller: IController) {
+        constructor(controller: Controllers.IController) {
             this.controller = controller;
             this.items = [];
         }
 
-        Get() {
-            this.controller.getJson()
-                .done((response: Array<any>) => {
-                var me = this;
+        Get(callBacks?: Utility.ICallbacks) {
+            callBacks = callBacks || {};
 
-                _.forEach(response,(item) => {
-                    me.items.push(item);
-                });
+            this.controller.getJson()
+                .then((response: Array<any>) => {
+                    var me = this;
+
+                    _.forEach(response,(item) => {
+                        me.AddItem(item);
+                    });
+
+                    if (callBacks.Success) {
+                        callBacks.Success();
+                    }
             });
         }
 
@@ -41,6 +47,10 @@
             }
 
             return _.filter(this.items, predicate);
+        }
+
+        protected AddItem(item: any) {
+            this.items.push(item);
         }
     }
 }

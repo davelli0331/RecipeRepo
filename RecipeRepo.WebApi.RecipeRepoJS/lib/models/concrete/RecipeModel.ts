@@ -1,12 +1,17 @@
 module Models {
     export class RecipeModel extends BaseModel {
 
-        RecipeName: string;
+        Title: string;
+        Description: string;
+        TimeToPrepare: number;
 
-        constructor(controller: IController, recipeName: string) {
+        constructor(controller?: Controllers.IController, title?: string, description?: string, timeToPrepare?: number) {
+            controller = controller || new Controllers.RecipeController();
             super(controller);
 
-            this.RecipeName = recipeName;
+            this.Title = title;
+            this.Description = description;
+            this.TimeToPrepare = timeToPrepare;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿module Models {
     export class BaseModel {
-        private controller: IController;
+        private controller: Controllers.IController;
         private isDirty: boolean;
         private isNew: boolean;
 
@@ -12,7 +12,7 @@
             return this.isDirty;
         }
 
-        constructor(controller?: IController) {
+        constructor(controller?: Controllers.IController) {
             this.controller = controller;
 
             this.isDirty = true;

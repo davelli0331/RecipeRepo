@@ -5,13 +5,18 @@ var Collections;
             this.controller = controller;
             this.items = [];
         }
-        BaseCollection.prototype.Get = function () {
+        BaseCollection.prototype.Get = function (callBacks) {
             var _this = this;
-            this.controller.getJson().done(function (response) {
+            callBacks = callBacks || {};
+            this.controller.getJson()
+                .then(function (response) {
                 var me = _this;
                 _.forEach(response, function (item) {
-                    me.items.push(item);
+                    me.AddItem(item);
                 });
+                if (callBacks.Success) {
+                    callBacks.Success();
+                }
             });
         };
         BaseCollection.prototype.ItemAt = function (index) {
@@ -31,6 +36,9 @@ var Collections;
                 return [];
             }
             return _.filter(this.items, predicate);
+        };
+        BaseCollection.prototype.AddItem = function (item) {
+            this.items.push(item);
         };
         return BaseCollection;
     })();

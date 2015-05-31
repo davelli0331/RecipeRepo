@@ -1,4 +1,4 @@
-declare class mockController implements IController {
+declare class mockController implements Controllers.IController {
     private options;
     constructor(options?: {
         postOptions?: {
@@ -10,7 +10,7 @@ declare class mockController implements IController {
         };
     });
     postJson(json: any): Promise<{}>;
-    getJson(json?: any): JQueryDeferred<{}>;
+    getJson(options?: any): Promise<any>;
     putJson(json: any): Promise<{}>;
     deleteJson(json: any): Promise<{}>;
 }

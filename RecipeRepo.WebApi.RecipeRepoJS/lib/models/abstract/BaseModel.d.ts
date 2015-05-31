@@ -5,7 +5,7 @@ declare module Models {
         private isNew;
         IsNew: boolean;
         IsDirty: boolean;
-        constructor(controller?: IController);
+        constructor(controller?: Controllers.IController);
         Save(options?: {
             onSuccess?: (successReponse?: any) => void;
             onFailure?: (failureResponse?: any) => void;

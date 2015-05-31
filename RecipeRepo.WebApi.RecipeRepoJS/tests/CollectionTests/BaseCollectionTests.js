@@ -1,6 +1,6 @@
 describe("Base Collection ", function () {
     describe("Get ", function () {
-        var controller;
+        var controller, collection;
         beforeEach(function (done) {
             controller = new mockController({
                 getOptions: {
@@ -9,20 +9,21 @@ describe("Base Collection ", function () {
                     }]
                 }
             });
-            controller.getJson().done(function () {
-                done();
+            collection = new Collections.BaseCollection(controller);
+            collection.Get({
+                Success: function () {
+                    done();
+                }
             });
         });
         it("succeeds", function () {
-            var collection = new Collections.BaseCollection(controller);
-            collection.Get();
             var item = collection.ItemAt(0);
             expect(collection.Count()).toBe(1);
             expect(item.Title).toBe("Test Title");
         });
     });
     describe("collection inspection and selection ", function () {
-        var controller;
+        var controller, collection;
         beforeEach(function (done) {
             controller = new mockController({
                 getOptions: {
@@ -37,28 +38,25 @@ describe("Base Collection ", function () {
                     }]
                 }
             });
-            controller.getJson().done(function () {
-                done();
+            collection = new Collections.BaseCollection(controller);
+            collection.Get({
+                Success: function () {
+                    done();
+                }
             });
         });
         describe("Any ", function () {
             it("any() returns true if the list contains items but no predicate or properties are specified", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var shouldBeTrue = collection.Any();
                 expect(shouldBeTrue).toBe(true);
             });
             it("any() returns true an item matches a predicate", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var shouldBeTrue = collection.Any(function (item) {
                     return item.Title === "Another Title";
                 });
                 expect(shouldBeTrue).toBe(true);
             });
             it("any() returns false if no item matches", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var shouldBeTrue = collection.Any(function (item) {
                     return item.Title === "David";
                 });
@@ -67,8 +65,6 @@ describe("Base Collection ", function () {
         });
         describe("Where ", function () {
             it("returns an array of matching items for single item", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var matches = collection.Where(function (item) {
                     return item.Title === "Another Title";
                 });
@@ -76,22 +72,16 @@ describe("Base Collection ", function () {
                 expect(matches[0].Title).toBe("Another Title");
             });
             it("returns an array of matching items for multiple items", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var matches = collection.Where(function (item) {
                     return _.string.include(item.Title, "Test");
                 });
                 expect(matches.length).toBe(2);
             });
             it("returns an empty array if null passed in", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var matches = collection.Where(null);
                 expect(matches.length).toBe(0);
             });
             it("returns an empty array if no matching items found", function () {
-                var collection = new Collections.BaseCollection(controller);
-                collection.Get();
                 var matches = collection.Where(function (item) {
                     return item.Title === "alkdsjf";
                 });

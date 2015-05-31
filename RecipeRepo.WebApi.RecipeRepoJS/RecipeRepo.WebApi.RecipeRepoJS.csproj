@@ -61,13 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="lib\collections\abstract\BaseCollection.ts" />
+    <TypeScriptCompile Include="lib\collections\utility\ICallbacks.ts" />
     <TypeScriptCompile Include="lib\collections\utility\IPredicate.ts" />
+    <TypeScriptCompile Include="lib\controllers\concrete\RecipeController.ts" />
     <TypeScriptCompile Include="lib\views\abstract\BaseView.ts" />
     <TypeScriptCompile Include="scripts\typings\handlebars\handlebars.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\underscore.string\underscore.string.d.ts" />
     <TypeScriptCompile Include="scripts\typings\underscore\underscore.d.ts" />
     <TypeScriptCompile Include="tests\CollectionTests\BaseCollectionTests.ts" />
+    <TypeScriptCompile Include="tests\CollectionTests\RecipeCollectionTests.ts" />
     <TypeScriptCompile Include="tests\Mocks\mockController.ts" />
     <TypeScriptCompile Include="tests\ModelTests\BaseModelTests.ts" />
     <Content Include="RecipeRepo.js" />

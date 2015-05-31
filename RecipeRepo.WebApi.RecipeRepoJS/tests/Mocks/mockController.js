@@ -14,10 +14,10 @@ var mockController = (function () {
         });
         return promise;
     };
-    mockController.prototype.getJson = function (json) {
-        var deferred = $.Deferred();
-        deferred.resolve(this.options.getOptions.getShouldReturn);
-        return deferred;
+    mockController.prototype.getJson = function (options) {
+        if (!this.options.getOptions.getShouldFail) {
+            return Promise.resolve(this.options.getOptions.getShouldReturn);
+        }
     };
     mockController.prototype.putJson = function (json) {
         return new Promise(function (resolve, reject) {
