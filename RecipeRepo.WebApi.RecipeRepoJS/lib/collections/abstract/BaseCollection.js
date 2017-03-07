@@ -41,6 +41,6 @@ var Collections;
             this.items.push(item);
         };
         return BaseCollection;
-    })();
+    }());
     Collections.BaseCollection = BaseCollection;
 })(Collections || (Collections = {}));

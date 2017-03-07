@@ -50,6 +50,6 @@ var Models;
             return {};
         };
         return BaseModel;
-    })();
+    }());
     Models.BaseModel = BaseModel;
 })(Models || (Models = {}));

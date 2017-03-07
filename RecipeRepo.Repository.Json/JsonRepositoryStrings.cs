@@ -8,7 +8,7 @@ namespace RecipeRepo.Repository.Json
 {
     public static class JsonRepositoryStrings
     {
-        public const string JsonFolderLocation = @"C:\Repositories\";
+        public const string JsonFolderLocation = @"C:\Solutions\RecipeRepo\RecipeRepo.Repository.Json\";
         public const string IngredientsFileName = "Ingredients.json";
         public const string RecipesFileName = "Recipes.json";
     }

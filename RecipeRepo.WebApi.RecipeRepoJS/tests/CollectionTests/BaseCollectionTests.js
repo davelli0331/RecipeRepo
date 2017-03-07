@@ -5,8 +5,8 @@ describe("Base Collection ", function () {
             controller = new mockController({
                 getOptions: {
                     getShouldReturn: [{
-                        Title: "Test Title"
-                    }]
+                            Title: "Test Title"
+                        }]
                 }
             });
             collection = new Collections.BaseCollection(controller);
@@ -28,14 +28,14 @@ describe("Base Collection ", function () {
             controller = new mockController({
                 getOptions: {
                     getShouldReturn: [{
-                        Title: "Test Title #1"
-                    }, {
-                        Title: "Test Title #2"
-                    }, {
-                        Title: "Another Title"
-                    }, {
-                        Title: "One More Title"
-                    }]
+                            Title: "Test Title #1"
+                        }, {
+                            Title: "Test Title #2"
+                        }, {
+                            Title: "Another Title"
+                        }, {
+                            Title: "One More Title"
+                        }]
                 }
             });
             collection = new Collections.BaseCollection(controller);
@@ -51,30 +51,22 @@ describe("Base Collection ", function () {
                 expect(shouldBeTrue).toBe(true);
             });
             it("any() returns true an item matches a predicate", function () {
-                var shouldBeTrue = collection.Any(function (item) {
-                    return item.Title === "Another Title";
-                });
+                var shouldBeTrue = collection.Any(function (item) { return item.Title === "Another Title"; });
                 expect(shouldBeTrue).toBe(true);
             });
             it("any() returns false if no item matches", function () {
-                var shouldBeTrue = collection.Any(function (item) {
-                    return item.Title === "David";
-                });
+                var shouldBeTrue = collection.Any(function (item) { return item.Title === "David"; });
                 expect(shouldBeTrue).toBe(false);
             });
         });
         describe("Where ", function () {
             it("returns an array of matching items for single item", function () {
-                var matches = collection.Where(function (item) {
-                    return item.Title === "Another Title";
-                });
+                var matches = collection.Where(function (item) { return item.Title === "Another Title"; });
                 expect(matches.length).toBe(1);
                 expect(matches[0].Title).toBe("Another Title");
             });
             it("returns an array of matching items for multiple items", function () {
-                var matches = collection.Where(function (item) {
-                    return _.string.include(item.Title, "Test");
-                });
+                var matches = collection.Where(function (item) { return _.string.include(item.Title, "Test"); });
                 expect(matches.length).toBe(2);
             });
             it("returns an empty array if null passed in", function () {
@@ -82,9 +74,7 @@ describe("Base Collection ", function () {
                 expect(matches.length).toBe(0);
             });
             it("returns an empty array if no matching items found", function () {
-                var matches = collection.Where(function (item) {
-                    return item.Title === "alkdsjf";
-                });
+                var matches = collection.Where(function (item) { return item.Title === "alkdsjf"; });
                 expect(matches.length).toBe(0);
             });
         });

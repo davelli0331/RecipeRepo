@@ -30,6 +30,6 @@ var Controllers;
             return new Promise(function (resolve, reject) { });
         };
         return RecipeController;
-    })();
+    }());
     Controllers.RecipeController = RecipeController;
 })(Controllers || (Controllers = {}));

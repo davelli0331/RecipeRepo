@@ -105,8 +105,12 @@
     <Content Include="index.html" />
     <Content Include="content\RecipeRepo.css" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app\globalEvents.js" />
     <Content Include="Scripts\app\recipe.js" />
+    <Content Include="Scripts\app\reciperoutes.js" />
     <Content Include="Scripts\app\recipescollection.js" />
+    <Content Include="Scripts\app\systemstrings.js" />
+    <Content Include="Scripts\libraries\anchorClickHandler.js" />
     <Content Include="Scripts\libraries\backbone.js" />
     <Content Include="Scripts\libraries\handlebars.js" />
     <Content Include="Scripts\libraries\jquery.js" />
@@ -114,7 +118,11 @@
     <Content Include="Scripts\libraries\underscore.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\templates\list.html" />
+    <Content Include="Scripts\templates\recipeAdd.html" />
+    <Content Include="Scripts\templates\recipeDetails.html" />
     <Content Include="Scripts\views\appView.js" />
+    <Content Include="Scripts\views\recipeAddView.js" />
+    <Content Include="Scripts\views\recipeDetailsView.js" />
     <Content Include="Scripts\views\recipeListView.js" />
     <Content Include="Scripts\views\recipeView.js" />
     <Content Include="Web.config" />

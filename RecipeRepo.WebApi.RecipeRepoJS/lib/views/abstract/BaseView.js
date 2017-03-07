@@ -12,6 +12,6 @@ var Views;
             return this.RootElement;
         };
         return BaseView;
-    })();
+    }());
     Views.BaseView = BaseView;
 })(Views || (Views = {}));
